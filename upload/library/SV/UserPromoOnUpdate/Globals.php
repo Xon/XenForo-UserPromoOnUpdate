@@ -4,7 +4,7 @@
 // relying on the consumer being loaded correctly by the dynamic class autoloader
 class SV_UserPromoOnUpdate_Globals
 {
-    public static $RunPromotion = false;
+    public static $RunPromotion = array();
 
     private function __construct() {}
 }
