@@ -12,7 +12,6 @@ class SV_UserPromoOnUpdate_XenForo_DataWriter_User extends XFCP_SV_UserPromoOnUp
             // ensure we don't attempt to run the promotion twice in the same request
             SV_UserPromoOnUpdate_Globals::$RunPromotion[$userId] = false;
             $user = $this->getMergedData();
-            $user['customFields'] = is_array($user['custom_fields']) ? $user['custom_fields'] : @unserialize($user['custom_fields']);
             /** @var $promotionModel XenForo_Model_UserGroupPromotion */
             $promotionModel = $this->getModelFromCache('XenForo_Model_UserGroupPromotion');
             if ($promotionModel->updatePromotionsForUser($user))

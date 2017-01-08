@@ -18,6 +18,10 @@ class SV_UserPromoOnUpdate_XenForo_Model_UserGroupPromotion extends XFCP_SV_User
         // copied from XenForo_Helper_Criteria
         $_userFieldPrefix = '__userField_';
         $_userFieldPrefixLength = 12;
+        if (!isset($user['customFields']))
+        {
+            $user['customFields'] = !empty($user['custom_fields']) ? XenForo_Helper_Php::safeUnserialize($user['custom_fields']) : array();
+        }
 
         foreach($promotions as &$promotion)
         {
