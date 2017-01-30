@@ -36,17 +36,18 @@ class SV_UserPromoOnUpdate_XenForo_Model_UserGroupPromotion extends XFCP_SV_User
                 {
                     $userFieldId = substr($criterion['rule'], $_userFieldPrefixLength);
 
-                    if (!isset($user['customFields'][$userFieldId]))
-                    {
-                        break;
-                    }
-
                     if (empty($criterion['data']))
                     {
+                        if (!isset($user['customFields'][$userFieldId]))
+                        {
+                            $user['customFields'][$userFieldId] = "";
+                        }
                         // force to a single value so the match works as expected
                         // need to keep the rule if it exists
-                        $criterion['data']['choices'] = array(1);
-                        $user['customFields'][$userFieldId] = empty($user['customFields'][$userFieldId]) ? 1 : 0;
+                        if (!is_array($user['customFields'][$userFieldId]))
+                        {
+                            $criterion['data']['choices'] =  array("");
+                        }
                     }
                 }
             }
