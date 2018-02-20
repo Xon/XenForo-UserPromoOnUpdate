@@ -9,6 +9,7 @@
   <code_event_listeners>
     <listener event_id="load_class_datawriter" execute_order="4988" callback_class="SV_UserPromoOnUpdate_Listener" callback_method="load_class" active="1" hint="XenForo_DataWriter_User" description="XenForo_DataWriter_User"/>
     <listener event_id="load_class_model" execute_order="4988" callback_class="SV_UserPromoOnUpdate_Listener" callback_method="load_class" active="1" hint="XenForo_Model_UserGroupPromotion" description="XenForo_Model_UserGroupPromotion"/>
+    <listener event_id="load_class_model" execute_order="4988" callback_class="SV_UserPromoOnUpdate_Listener" callback_method="load_class" active="1" hint="XenForo_Model_UserUpgrade" description="XenForo_Model_UserUpgrade"/>
   </code_event_listeners>
   <cron/>
   <email_templates/>

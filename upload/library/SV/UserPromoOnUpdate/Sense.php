@@ -1,4 +1,5 @@
 <?php
 
+class XFCP_SV_UserPromoOnUpdate_XenForo_Model_UserUpgrade extends XenForo_Model_UserUpgrade {}
 class XFCP_SV_UserPromoOnUpdate_XenForo_Model_UserGroupPromotion extends XenForo_Model_UserGroupPromotion {}
 class XFCP_SV_UserPromoOnUpdate_XenForo_DataWriter_User extends XenForo_DataWriter_User {}
