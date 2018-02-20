@@ -6,9 +6,7 @@ class SV_UserPromoOnUpdate_XenForo_Model_UserGroupPromotion extends XFCP_SV_User
     {
         if ($promotions === null)
         {
-            $promotions = $this->getPromotions(array(
-                'active' => 1
-            ));
+            $promotions = $this->getPromotions(['active' => 1]);
         }
         if (!$promotions)
         {
@@ -20,17 +18,17 @@ class SV_UserPromoOnUpdate_XenForo_Model_UserGroupPromotion extends XFCP_SV_User
         $_userFieldPrefixLength = 12;
         if (!isset($user['customFields']))
         {
-            $user['customFields'] = !empty($user['custom_fields']) ? XenForo_Helper_Php::safeUnserialize($user['custom_fields']) : array();
+            $user['customFields'] = !empty($user['custom_fields']) ? XenForo_Helper_Php::safeUnserialize($user['custom_fields']) : [];
         }
 
-        foreach($promotions as &$promotion)
+        foreach ($promotions as &$promotion)
         {
             $promotion['user_criteria'] = XenForo_Helper_Criteria::unserializeCriteria($promotion['user_criteria']);
             if (empty($promotion['user_criteria']))
             {
                 continue;
             }
-            foreach($promotion['user_criteria'] as &$criterion)
+            foreach ($promotion['user_criteria'] as &$criterion)
             {
                 if (strpos($criterion['rule'], $_userFieldPrefix) === 0)
                 {
@@ -46,7 +44,7 @@ class SV_UserPromoOnUpdate_XenForo_Model_UserGroupPromotion extends XFCP_SV_User
                         // need to keep the rule if it exists
                         if (!is_array($user['customFields'][$userFieldId]))
                         {
-                            $criterion['data']['choices'] =  array("");
+                            $criterion['data']['choices'] = [""];
                         }
                     }
                 }
